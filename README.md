@@ -22,7 +22,7 @@ The status should be `Running`.
 ### 2. Server
 
 ```powershell
-cd "C:\Users\Gautham Sai\Documents\Python Full Stack at Codegnan\CIRCLE-UP\server"
+cd "C:\Users\DURGA\OneDrive\Desktop\CODEGNAN\Hackthon_Project\CIRCLE-UP\server"
 npm.cmd install
 npm.cmd run dev
 ```
@@ -38,7 +38,7 @@ MongoDB connected: 127.0.0.1
 Open another terminal while the server is stopped or use a separate terminal:
 
 ```powershell
-cd "C:\Users\Gautham Sai\Documents\Python Full Stack at Codegnan\CIRCLE-UP\server"
+cd "C:\Users\DURGA\OneDrive\Desktop\CODEGNAN\Hackthon_Project\CIRCLE-UP\server"
 npm.cmd run seed
 ```
 
@@ -54,7 +54,7 @@ The seed creates 6 communities/lobbies and events deliberately split into upcomi
 ### 4. Client
 
 ```powershell
-cd "C:\Users\Gautham Sai\Documents\Python Full Stack at Codegnan\CIRCLE-UP\client"
+cd "C:\Users\DURGA\OneDrive\Desktop\CODEGNAN\Hackthon_Project\CIRCLE-UP\client"
 npm.cmd install
 npm.cmd run dev
 ```
