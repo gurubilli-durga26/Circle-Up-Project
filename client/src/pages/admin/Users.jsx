@@ -1,0 +1,2 @@
+import {useEffect,useState} from "react";import PageContainer from "../../components/layout/PageContainer";import api from "../../services/api";
+export default function Users(){const [users,setUsers]=useState([]);useEffect(()=>{api.get("/admin/users").then(r=>setUsers(r.users))},[]);return <PageContainer><h1 className="text-3xl font-black">Users</h1><div className="mt-6 space-y-2">{users.map(u=><div key={u._id} className="rounded-xl border border-[#2A2A2E] bg-[#1B1B1D] p-4"><b>{u.name}</b><span className="ml-3 text-gray-500">{u.email}</span></div>)}</div></PageContainer>}

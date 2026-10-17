@@ -1,0 +1,1 @@
+import {Router} from "express";import {protect} from "../middleware/authMiddleware.js";import {requireRole} from "../middleware/roleMiddleware.js";import User from "../models/User.js";const r=Router();r.get("/users",protect,requireRole("admin"),async(req,res)=>res.json({users:await User.find().select("-password").sort("-createdAt")}));export default r;

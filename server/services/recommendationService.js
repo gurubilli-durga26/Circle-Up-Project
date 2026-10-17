@@ -1,0 +1,1 @@
+export function rankEventsForUser(events,user){const hobbies=new Set((user?.hobbies||[]).map(x=>x.toLowerCase()));return [...events].sort((a,b)=>Number(hobbies.has(b.category.toLowerCase()))-Number(hobbies.has(a.category.toLowerCase())));}

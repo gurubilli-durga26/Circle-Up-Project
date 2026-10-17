@@ -1,0 +1,12 @@
+import "dotenv/config";
+import express from "express";import cors from "cors";
+import {connectDB} from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";import userRoutes from "./routes/userRoutes.js";import groupRoutes from "./routes/groupRoutes.js";import eventRoutes from "./routes/eventRoutes.js";import rsvpRoutes from "./routes/rsvpRoutes.js";import postRoutes from "./routes/postRoutes.js";import commentRoutes from "./routes/commentRoutes.js";import reportRoutes from "./routes/reportRoutes.js";import adminRoutes from "./routes/adminRoutes.js";import analyticsRoutes from "./routes/analyticsRoutes.js";
+import {notFound} from "./middleware/notFoundMiddleware.js";import {errorMiddleware} from "./middleware/errorMiddleware.js";
+const app=express();
+app.use(cors({origin:process.env.CLIENT_URL||"http://localhost:5173"}));app.use(express.json({limit:"1mb"}));
+app.get("/",(req,res)=>res.json({name:"Circle-Up API",status:"running"}));app.get("/api/health",(req,res)=>res.json({success:true,service:"circle-up-server",database:"configured"}));
+app.use("/api/auth",authRoutes);app.use("/api/users",userRoutes);app.use("/api/groups",groupRoutes);app.use("/api/events",eventRoutes);app.use("/api/rsvps",rsvpRoutes);app.use("/api/posts",postRoutes);app.use("/api/comments",commentRoutes);app.use("/api/reports",reportRoutes);app.use("/api/admin",adminRoutes);app.use("/api/analytics",analyticsRoutes);
+app.use(notFound);app.use(errorMiddleware);
+const port=process.env.PORT||5000;
+connectDB().then(()=>app.listen(port,()=>console.log(`Circle-Up server running on port ${port}`))).catch(err=>{console.error("MongoDB connection failed:",err.message);process.exit(1)});

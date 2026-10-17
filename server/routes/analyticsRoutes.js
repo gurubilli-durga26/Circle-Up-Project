@@ -1,0 +1,1 @@
+import {Router} from "express";import {protect} from "../middleware/authMiddleware.js";import {requireRole} from "../middleware/roleMiddleware.js";import {dashboard} from "../controllers/analyticsController.js";const r=Router();r.get("/dashboard",protect,requireRole("admin"),dashboard);export default r;

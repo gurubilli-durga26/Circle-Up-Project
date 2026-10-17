@@ -1,0 +1,1 @@
+import {Router} from "express";import {protect} from "../middleware/authMiddleware.js";import {rsvp} from "../controllers/eventController.js";const r=Router();r.post("/:id",protect,rsvp);export default r;

@@ -1,0 +1,1 @@
+import {Router} from "express";import {protect} from "../middleware/authMiddleware.js";import {createReport,listReports} from "../controllers/reportController.js";import {requireRole} from "../middleware/roleMiddleware.js";const r=Router();r.post("/",protect,createReport);r.get("/",protect,requireRole("admin"),listReports);export default r;

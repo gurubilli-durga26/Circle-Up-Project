@@ -1,0 +1,1 @@
+import {Router} from "express";import {protect} from "../middleware/authMiddleware.js";import {listEvents,getEvent,createEvent,updateEvent} from "../controllers/eventController.js";const r=Router();r.get("/",listEvents);r.get("/:id",getEvent);r.post("/",protect,createEvent);r.put("/:id",protect,updateEvent);export default r;

@@ -1,0 +1,1 @@
+import Comment from "../models/Comment.js";export async function addComment(req,res){if(!req.body.content?.trim())return res.status(400).json({message:"Comment is required"});const comment=await Comment.create({post:req.params.postId,author:req.user._id,content:req.body.content.trim()});res.status(201).json({comment})}

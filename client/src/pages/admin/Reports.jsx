@@ -1,0 +1,2 @@
+import {useEffect,useState} from "react";import PageContainer from "../../components/layout/PageContainer";import ReportTable from "../../components/admin/ReportTable";import {reportService} from "../../services/reportService";
+export default function Reports(){const [reports,setReports]=useState([]);useEffect(()=>{reportService.list().then(r=>setReports(r.reports))},[]);return <PageContainer><h1 className="text-3xl font-black">Reports</h1><div className="mt-6"><ReportTable reports={reports}/></div></PageContainer>}

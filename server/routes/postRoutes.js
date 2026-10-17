@@ -1,0 +1,1 @@
+import {Router} from "express";import {protect} from "../middleware/authMiddleware.js";import {listPosts,createPost} from "../controllers/postController.js";const r=Router();r.get("/",listPosts);r.post("/",protect,createPost);export default r;

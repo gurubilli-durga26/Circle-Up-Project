@@ -1,0 +1,1 @@
+import {Router} from "express";import {protect} from "../middleware/authMiddleware.js";import {addComment} from "../controllers/commentController.js";const r=Router();r.post("/:postId",protect,addComment);export default r;
